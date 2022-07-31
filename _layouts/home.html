@@ -1,0 +1,133 @@
+---
+layout: default
+---
+
+<div class="application-main">
+  <turbo-frame id="repo-content-turbo-frame" class="">
+    <div id="repo-content-pjax-container" class="repository-content">
+      <div class="clearfix container-xl px-3 px-md-4 px-lg-5 mt-4">
+        <div data-view-component="true" class="Layout Layout--flowRow-until-md Layout--sidebarPosition-end Layout--sidebarPosition-flowRow-end">
+          <!-- Main -->
+          <div data-view-component="true" class="Layout-main">
+            <div class="file-navigation mb-3 d-flex flex-items-start">
+              <div class="position-relative">
+                <details class="dropdown details-reset details-overlay d-inline-block" id="branch-select-menu">
+                  <summary class="btn" aria-haspopup="true">
+                    默认
+                    <div class="dropdown-caret"></div>
+                  </summary>
+
+                  <ul class="dropdown-menu dropdown-menu-se">
+                    <li data-toggle-for="blob-more-options-details">
+                      <button data-toggle-for="jumpto-line-details-dialog" type="button" data-view-component="true" class="dropdown-item btn-link">
+                        <span class="d-flex flex-items-baseline"><span class="flex-auto">not available</span></span>
+                      </button>
+                    </li>
+                    <li class="dropdown-divider" role="none"></li>
+                  </ul>
+                </details>
+              </div>
+
+              <div class="flex-auto"></div>
+
+              <div class="flex-self-center ml-3 flex-self-stretch d-none d-lg-flex flex-items-center lh-condensed-ultra">
+                <div>
+                  <span class="color-fg-muted">最近发布:</span>
+                  <strong class="color-fg-muted">{{ site.posts[0].date | date: "%Y/%m/%d" }}</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- 文章列表 -->
+            <div class="Box mb-3">
+              <div class="Box-header position-relative">
+                <div class="js-details-container Details d-flex rounded-top-2 flex-items-center flex-wrap">
+                  <div class="flex-1 d-flex flex-items-center min-width-0">
+                    <div class="css-truncate css-truncate-overflow">
+                      <span>所有文章</span>
+                    </div>
+
+                    <div class="d-flex flex-auto flex-justify-end ml-3 flex-items-baseline">
+                      <div>
+                        <strong>{{ site.posts.size }}</strong>
+                        <span class="color-fg-muted">篇文章</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="js-details-container Details">
+                <div role="grid" class="Details-content--hidden-not-important js-navigation-container js-active-navigation-container d-block">
+                  {%- for post in site.posts -%}
+                    <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+                      <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+                        <svg aria-label="File" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                             data-view-component="true" class="octicon octicon-file color-fg-muted">
+                          <path fill-rule="evenodd"
+                                d="M3.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 00.25-.25V6h-2.75A1.75 1.75 0 019 4.25V1.5H3.75zm6.75.062V4.25c0 .138.112.25.25.25h2.688a.252.252 0 00-.011-.013l-2.914-2.914a.272.272 0 00-.013-.011zM2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0113.25 16h-9.5A1.75 1.75 0 012 14.25V1.75z"></path>
+                        </svg>
+                      </div>
+
+                      <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+                          <span class="css-truncate css-truncate-target d-block width-fit">
+                            <a class="js-navigation-open Link--primary" title="{{ post.title }}"
+                               href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                          </span>
+                      </div>
+
+                      <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3">
+                        <span class="css-truncate css-truncate-target d-block width-fit markdown-title">
+                          {%- for cate in post.categories -%}
+                            <span class="mr-1 Label Label--primary">{{ cate }}</span>
+                          {%- endfor -%}
+
+                          {%- for tag in post.tags -%}
+                            <span class="mr-1 Label">{{ tag }}</span>
+                          {%- endfor -%}
+                        </span>
+                      </div>
+
+                      <div role="gridcell" class="color-fg-muted text-right" style="width:100px;">
+                        <span class="no-wrap">{{ post.date | date: '%Y-%m-%d' }}</span>
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div data-view-component="true" class="Layout-sidebar">
+            <div class="BorderGrid BorderGrid--spacious">
+              <div class="BorderGrid-row">
+                <div class="BorderGrid-cell">
+                  <h2 class="mb-3 h4">关于我</h2>
+                  <p class="f4 my-3">
+                    I'm a software developer. <br>
+                    This is my dev blog.
+                  </p>
+                </div>
+              </div>
+
+              <div class="BorderGrid-row">
+                <div class="BorderGrid-cell">
+                  <h2 class="h4 mb-3" data-pjax="#repo-content-pjax-container"
+                      data-turbo-frame="repo-content-turbo-frame">
+                    <a class="Link--primary no-underline">友情链接</a>
+                  </h2>
+
+                  <div class="text-small">
+                    <a href="https://github.com/supgeek-rod/jekyll-theme-github-like" target="_blank">jekyll-theme-github-like</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </turbo-frame>
+</div>

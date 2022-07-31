@@ -1,1 +1,16 @@
-{{ content }}
+<!DOCTYPE html>
+<html lang="en" data-color-mode="dark" data-light-theme="light_tritanopia" data-dark-theme="dark" data-a11y-animated-images="system">
+{%- include head.html -%}
+
+<body class="logged-in env-production page-responsive page-blob" style="word-wrap: break-word;">
+  <!-- header.html -->
+  {%- include header.html -%}
+
+  <!-- MainContent -->
+  {{ content }}
+
+  <!-- footer.html -->
+  {%- include footer.html -%}
+</body>
+</html>
+
