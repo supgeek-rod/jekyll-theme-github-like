@@ -1,95 +1,12 @@
-<div class="position-relative js-header-wrapper ">
-  <header class="Header-old header-logged-out js-details-container Details position-relative f4 py-2" role="banner">
-    <div class="container-xl d-lg-flex flex-items-center px-3 px-md-4 px-lg-5">
-      <div class="d-flex flex-justify-between flex-items-center">
-        <a class="mr-4 no-underline color-fg-inherit" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+<div class="color-bg-subtle">
+  <header class="Header container-xl color-bg-subtle">
+    <div class="Header-item mr-4"><a class="Header-link color-fg-default" href="{{ '/' | relative_url }}">{{ site.title }}</a></div>
+    <div class="Header-item"><a class="Header-link" href="{{ '/' | relative_url }}">Posts</a></div>
+    <div class="Header-item"><a class="Header-link" href="{{ '/about' | relative_url }}">About</a></div>
 
-        <div class="d-flex flex-items-center">
-          <button aria-label="Toggle navigation" aria-expanded="false" type="button" data-view-component="true" class="js-details-target btn-link d-lg-none mt-1 color-fg-inherit">
-            <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-three-bars">
-              <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- 移动端菜单按钮 -->
-      <div class="HeaderMenu HeaderMenu--logged-out position-fixed top-0 right-0 bottom-0 height-fit position-lg-relative d-lg-flex flex-justify-between flex-items-center flex-auto">
-        <div class="d-flex d-lg-none flex-justify-end border-bottom color-bg-subtle p-3">
-          <button aria-label="Toggle navigation" aria-expanded="false" type="button" data-view-component="true" class="js-details-target btn-link">
-            <svg aria-hidden="true" height="24" viewBox="0 0 24 24" version="1.1" width="24" data-view-component="true" class="octicon octicon-x color-fg-muted">
-              <path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- 导航 -->
-        <nav class="mt-0 px-3 px-lg-0 mb-5 mb-lg-0" aria-label="Global">
-          <ul class="d-lg-flex list-style-none">
-            <!--
-            <li class="mr-0 mr-lg-3 position-relative flex-wrap flex-justify-between flex-items-center border-bottom border-lg-bottom-0 d-block d-lg-flex flex-lg-nowrap flex-lg-items-center">
-              <details class="HeaderMenu-details details-overlay details-reset width-full">
-                <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
-                  分类
-                  <svg x="0" y="0" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative"><path d="M1,1l6.2,6L13,1"></path></svg>
-                </summary>
-
-                <div class="dropdown-menu flex-auto rounded px-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
-                  <ul class="list-style-none f5 pb-1">
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold py-2" href="#!">小程序开发</a></li>
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold py-2" href="#!">PHP</a></li>
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold py-2" href="#!">前端开发</a></li>
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold border-top pt-4 pb-2 mt-3" href="#!">按分类查看所有文章</a></li>
-                  </ul>
-                </div>
-              </details>
-            </li>
-
-            <li class="mr-0 mr-lg-3 position-relative flex-wrap flex-justify-between flex-items-center border-bottom border-lg-bottom-0 d-block d-lg-flex flex-lg-nowrap flex-lg-items-center">
-              <details class="HeaderMenu-details details-overlay details-reset width-full">
-                <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
-                  标签
-                  <svg x="0" y="0" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative"><path d="M1,1l6.2,6L13,1"></path></svg>
-                </summary>
-
-                <div class="dropdown-menu flex-auto rounded px-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
-                  <ul class="list-style-none f5 pb-1">
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold py-2" href="#!">Composer</a></li>
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold py-2" href="#!">PHP</a></li>
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold py-2" href="#!">Telescope</a></li>
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold py-2" href="#!">Linux</a></li>
-                    <li><a class="lh-condensed-ultra d-block no-underline position-relative Link--primary text-bold border-top pt-4 pb-2 mt-3" href="#!">按标签查看所有文章</a></li>
-                  </ul>
-                </div>
-              </details>
-            </li>
-
-            <li class="mr-0 mr-lg-3 position-relative flex-wrap flex-justify-between flex-items-center border-bottom border-lg-bottom-0 d-block d-lg-flex flex-lg-nowrap flex-lg-items-center">
-              <a class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" href="#!">归档</a>
-            </li>
-            -->
-
-            <li class="mr-0 mr-lg-3 position-relative flex-wrap flex-justify-between flex-items-center border-bottom border-lg-bottom-0 d-block d-lg-flex flex-lg-nowrap flex-lg-items-center">
-              <a class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" href="{{ '/about' | relative_url }}">About</a>
-            </li>
-          </ul>
-        </nav>
-
-        <!-- 搜索框 -->
-        <div class="d-lg-flex flex-items-center px-3 px-lg-0 text-center text-lg-left">
-          <div class="d-lg-flex min-width-0 mb-3 mb-lg-0">
-            <div class="header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 js-jump-to">
-              <div class="position-relative">
-                <form class="js-site-search-form">
-                  <label class="form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
-                    <input disabled type="text" class="form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus" placeholder="Search not available">
-                  </label>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="Header-item Header-item--full"></div>
+    <div class="Header-item mr-0">
+      <div class="Header-item"><input disabled placeholder="Search is not available" type="search" class="form-control Header-input"></div>
     </div>
   </header>
 </div>
