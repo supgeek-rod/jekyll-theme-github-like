@@ -13,7 +13,7 @@ layout: default
               <div class="position-relative">
                 <details class="dropdown details-reset details-overlay d-inline-block" id="branch-select-menu">
                   <summary class="btn" aria-haspopup="true">
-                    默认
+                    Default
                     <div class="dropdown-caret"></div>
                   </summary>
 
@@ -30,12 +30,14 @@ layout: default
 
               <div class="flex-auto"></div>
 
-              <div class="flex-self-center ml-3 flex-self-stretch d-none d-lg-flex flex-items-center lh-condensed-ultra">
+              <!--
+              <div class="d-none flex-self-center ml-3 flex-self-stretch d-none d-lg-flex flex-items-center lh-condensed-ultra">
                 <div>
-                  <span class="color-fg-muted">最近发布:</span>
+                  <span class="color-fg-muted">Last updated on</span>
                   <strong class="color-fg-muted">{{ site.posts[0].date | date: "%Y/%m/%d" }}</strong>
                 </div>
               </div>
+              -->
             </div>
 
             <!-- 文章列表 -->
@@ -44,13 +46,15 @@ layout: default
                 <div class="js-details-container Details d-flex rounded-top-2 flex-items-center flex-wrap">
                   <div class="flex-1 d-flex flex-items-center min-width-0">
                     <div class="css-truncate css-truncate-overflow">
-                      <span>所有文章</span>
+                      <span>All Posts</span>
                     </div>
 
                     <div class="d-flex flex-auto flex-justify-end ml-3 flex-items-baseline">
                       <div>
+                        <span class="color-fg-muted">total</span>
                         <strong>{{ site.posts.size }}</strong>
-                        <span class="color-fg-muted">篇文章</span>
+                        <span class="color-fg-muted"> posts, last updated on </span>
+                        <strong>{{ site.posts[0].date | date: "%Y/%m/%d" }}</strong>
                       </div>
                     </div>
                   </div>
@@ -103,10 +107,9 @@ layout: default
             <div class="BorderGrid BorderGrid--spacious">
               <div class="BorderGrid-row">
                 <div class="BorderGrid-cell">
-                  <h2 class="mb-3 h4">关于我</h2>
+                  <h2 class="mb-3 h4">About</h2>
                   <p class="f4 my-3">
-                    I'm a software developer. <br>
-                    This is my dev blog.
+                    A Jekyll theme like Github.com
                   </p>
                 </div>
               </div>
@@ -115,7 +118,7 @@ layout: default
                 <div class="BorderGrid-cell">
                   <h2 class="h4 mb-3" data-pjax="#repo-content-pjax-container"
                       data-turbo-frame="repo-content-turbo-frame">
-                    <a class="Link--primary no-underline">友情链接</a>
+                    <a class="Link--primary no-underline">Links</a>
                   </h2>
 
                   <div class="text-small">
