@@ -1,5 +1,6 @@
 ---
 layout: post 
+title: "Text and typography"
 categories: jekyll 
 tags: text typography
 ---
