@@ -2,62 +2,56 @@
 layout: default
 ---
 
-<div class="application-main">
-  <div class="">
-    <main id="js-repo-pjax-container">
-      <turbo-frame id="repo-content-turbo-frame" target="_top" data-turbo-action="advance" class="">
-        <div id="repo-content-pjax-container" class="repository-content ">
-          <div class="clearfix container-xl px-3 px-md-4 px-lg-5 mt-4">
-            <div data-test-selector="blob-container">
-              <div class="d-flex flex-items-start flex-shrink-0 pb-3 flex-wrap flex-md-nowrap flex-justify-between flex-md-justify-start">
-                <div id="blob-path" class="breadcrumb flex-auto flex-self-center min-width-0 text-normal mr-2 width-full width-md-auto flex-order-1 flex-md-order-none mt-3 mt-md-0">
-                  {% for cate in page.categories %}
-                    <a href="#!" class="btn mr-1">{{ cate }}</a>
-                  {% endfor %}
-                </div>
-
-                <div>
-                  {% for tag in page.tags %}
-                  <a href="#!" class="btn">{{ tag }}</a>
-                  {% endfor %}
-                </div>
-
-                <details id="blob-more-options-details" data-view-component="true" class="details-overlay details-reset position-relative">
-                  <summary role="button" data-view-component="true" class="btn ml-2">
-                    <svg aria-label="More options" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-kebab-horizontal">
-                      <path d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                    </svg>
-                  </summary>
-
-                  <div data-view-component="true">
-                    <ul class="dropdown-menu dropdown-menu-sw">
-                      <li data-toggle-for="blob-more-options-details">
-                        <button data-toggle-for="jumpto-line-details-dialog" type="button" data-view-component="true" class="dropdown-item btn-link">
-                          <span class="d-flex flex-items-baseline"><span class="flex-auto">not available</span></span>
-                        </button>
-                      </li>
-                      <li class="dropdown-divider" role="none"></li>
-                    </ul>
-                  </div>
-                </details>
-              </div>
-
-              <!-- Post Content -->
-              <readme-toc>
-                <div data-target="readme-toc.content" class="Box mt-0 position-relative">
-                  <div id="readme"
-                       class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
-                    <article class="markdown-body entry-content container-lg" itemprop="text">
-                      <h1>{{ page.title }}</h1>
-                      {{ content }}
-                    </article>
-                  </div>
-                </div>
-              </readme-toc>
-            </div>
-          </div>
+<div>
+  <div class="clearfix container-xl px-3 px-md-4 px-lg-5 mt-4">
+    <div>
+      <!-- Post Categories and Tags -->
+      <div class="d-flex flex-items-start flex-shrink-0 pb-3 flex-wrap flex-md-nowrap flex-justify-between flex-md-justify-start">
+        <!-- categories -->
+        <div id="blob-path" class="breadcrumb flex-auto flex-self-center min-width-0 text-normal mr-2 width-full width-md-auto flex-order-1 flex-md-order-none mt-3 mt-md-0">
+          {% for cate in page.categories %}
+            <a class="btn disabled color-fg-default mr-1">{{ cate }}</a>
+          {% endfor %}
         </div>
-      </turbo-frame>
-    </main>
+
+        <!-- tags -->
+        <div>
+          {% for tag in page.tags %}
+            <a class="btn disabled color-fg-default">{{ tag }}</a>
+          {% endfor %}
+        </div>
+
+        <!-- more tags -->
+        <!-- TODO: waiting to be cleaned -->
+        <details id="blob-more-options-details" data-view-component="true" class="details-overlay details-reset position-relative">
+          <summary role="button" data-view-component="true" class="btn ml-2">
+            <svg aria-label="More options" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-kebab-horizontal">
+              <path d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+            </svg>
+          </summary>
+
+          <div data-view-component="true">
+            <ul class="dropdown-menu dropdown-menu-sw">
+              <li data-toggle-for="blob-more-options-details">
+                <button data-toggle-for="jumpto-line-details-dialog" type="button" data-view-component="true" class="dropdown-item btn-link">
+                  <span class="d-flex flex-items-baseline"><span class="flex-auto">not available</span></span>
+                </button>
+              </li>
+              <li class="dropdown-divider" role="none"></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- Post Content -->
+      <div class="Box mt-0 position-relative">
+        <div class="Box-body blob p-5 p-xl-6">
+          <article class="markdown-body container-lg">
+            <h1>{{ page.title }}</h1>
+            {{ content }}
+          </article>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
