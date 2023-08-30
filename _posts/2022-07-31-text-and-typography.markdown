@@ -1,7 +1,7 @@
 ---
 layout: post 
-categories: 主题
-tags: 排版 typography
+categories: jekyll 
+tags: text typography
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
