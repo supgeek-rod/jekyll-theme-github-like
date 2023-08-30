@@ -1,0 +1,20 @@
+.markdown-body figure.highlight {
+    margin: 0;
+    margin-bottom: 16px;
+}
+.markdown-body figure.highlight table.rouge-table {
+    margin-bottom: 0;
+}
+.markdown-body figure.highlight table.rouge-table,
+.markdown-body figure.highlight table.rouge-table tr,
+.markdown-body figure.highlight table.rouge-table td {
+    padding: 0;
+    border: none;
+}
+.markdown-body figure.highlight table.rouge-table td pre.lineno {
+    padding-left: 0;
+}
+.markdown-body figure.highlight table.rouge-table td pre {
+    padding-top: 0;
+    padding-bottom: 0;
+}
